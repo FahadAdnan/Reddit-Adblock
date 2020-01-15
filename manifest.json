@@ -1,0 +1,37 @@
+
+{
+    "name": "Utube to mp3/mp4",
+    "short_name": "Utube Downloader",
+    "version": "1.0",
+    "description": "An extension that automates the process of downloading utube videos.",
+    "permissions": [ 
+      "https://www.youtube.com/*", 
+      "declarativeContent",
+       "storage"],
+      "content_scripts":[
+        {
+           "matches":["https://ytmp3.cc/*"],
+            "js": ["content.js"]
+        }
+    ],
+    "background": {
+        "scripts": ["background_new.js"],
+        "persistent": false
+      },
+      "page_action": {
+        "default_popup": "popup_new.html",
+        "default_icon": {
+            "16": "images/start16.png",
+            "32": "images/start32.png",
+            "48": "images/start48.png",
+            "128": "images/start128.png"
+          }
+      },
+      "icons": {
+        "16": "images/start16.png",
+        "32": "images/start32.png",
+        "48": "images/start48.png",
+        "128": "images/start128.png"
+      },
+    "manifest_version": 2
+  }
