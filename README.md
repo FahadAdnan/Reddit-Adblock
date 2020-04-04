@@ -1,4 +1,4 @@
-# Chrome-Extension-YoutubeDownloader
+# Reddit-AdBlock
 
 A chrome extension made to block ads and promoted posts on reddit, because they are pretty weird. 
 
