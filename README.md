@@ -1,8 +1,11 @@
 # Chrome-Extension-YoutubeDownloader
-A chrome extension that automatically downloads Youtube videos for you with the use of an external website. 
-Checks when a pages and links are loaded using Mutation Observers along with a variety of other tools.
 
-Note: The chrome store REJECTED my extension as it breaks their downloading from youtube regulations. 
+A chrome extension made to block ads and promoted posts on reddit, because they are pretty weird. 
+
+Uses mutation observers, and a background script to detect a dynamic changes (e.g AJAX) to re-inject ad-blocking code when a Reddit web page dynamically reloads. The content script does not check for dynamic reloading, so I made a background page to do check for when that occurs.
+
+
+Note: The chrome store isnt yet ACCEPTED by the chrome store.
 So I made it possible for you to download it on your own.
 
 Steps to get UtubeDownloader:
@@ -15,6 +18,8 @@ Steps to get UtubeDownloader:
 6) Select the unzip folder and enjoy
 
 Feel free to modify the code to your liking. :)
+
+
 
 
 
