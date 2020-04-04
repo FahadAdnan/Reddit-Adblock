@@ -1,16 +1,15 @@
 
 {
-    "name": "Utube to mp3/mp4",
-    "short_name": "Utube Downloader",
+    "name": "Reddit - Promoted Post Blocker ",
+    "short_name": "adblockerReddit",
     "version": "1.0",
-    "description": "An extension that automates the process of downloading utube videos.",
+    "description": "Blocks Promoted Posts on reddit for all subreddits without hindering UX",
     "permissions": [ 
-      "https://www.youtube.com/*", 
-      "declarativeContent",
-       "storage"],
+      "https://www.reddit.com/*"
+    ],
       "content_scripts":[
         {
-           "matches":["https://ytmp3.cc/*"],
+           "matches":["https://www.reddit.com/*"],
             "js": ["content.js"]
         }
     ],
@@ -18,15 +17,9 @@
         "scripts": ["background_new.js"],
         "persistent": false
       },
-      "page_action": {
-        "default_popup": "popup_new.html",
-        "default_icon": {
-            "16": "images/start16.png",
-            "32": "images/start32.png",
-            "48": "images/start48.png",
-            "128": "images/start128.png"
-          }
-      },
+      "browser_action": {
+        "default_icon": "images/start32.png"
+    },
       "icons": {
         "16": "images/start16.png",
         "32": "images/start32.png",
