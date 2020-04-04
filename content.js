@@ -39,8 +39,8 @@ function DeletePromotedPosts(start,end){
 }
 
 function RemoveAds(){
-    var adsremoved = 0;
     var ads;
+
     setTimeout(function() { // wait post tab to open and all the posts to load. 
         ads = document.getElementsByClassName("_1rmObrmUCfC5t42SbwkzYC");
         if(typeof(ads) !== 'undefined'){
@@ -49,7 +49,6 @@ function RemoveAds(){
                 if(typeof(ads[0]) !== 'undefined'){
                     ads[0].remove();
                     console.log("A ad was removed!");
-                    adsremoved=1;
                 }
             }
         }
@@ -93,10 +92,18 @@ var observer_main_feed = new MutationObserver(callback_main);
 // check if nodes are undefined and if not observe.
 function observe_nodes() {
 
-    if(typeof(target_clicked_post) !== 'undefined'){
-        observer_clicked_post.observe(target_clicked_post, config_clicked_post);
+    if(typeof(target_clicked_post) === 'undefined' || typeof(target_main_feed) === 'undefined'){
+        setTimeout(function() { // wait for page to load multiple the posts 
+            console.log("rechecking if nodes loaded.");
+             target_main_feed = document.getElementsByClassName("rpBJOHq2PR60pnwJlUyP0")[0];
+             target_clicked_post = document.getElementsByTagName("BODY")[0];  
+             observe_nodes();
+        }, 200);
     }
-    if(typeof(target_main_feed) !== 'undefined'){
+     if(typeof(target_clicked_post) !== 'undefined'){
+        observer_clicked_post.observe(target_clicked_post, config_clicked_post);
+     }
+     if(typeof(target_main_feed) !== 'undefined'){
         observer_main_feed.observe(target_main_feed, config_main_feed);
     }
 }
@@ -104,8 +111,12 @@ function observe_nodes() {
 
 
 // When the page updates dynamically, the window don't reload-  add this do what typically happens on a window reload
-RemoveAds();
+
 observe_nodes();
+
+setTimeout(function() { // wait for page before removing ads. 
+    RemoveAds();
+}, 200); 
 
 
 window.addEventListener('load', 
