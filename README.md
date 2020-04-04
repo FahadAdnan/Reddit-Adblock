@@ -17,6 +17,8 @@ Steps to get UtubeDownloader:
 5) Press the new revelaed load unpacked button
 6) Select the unzip folder and enjoy
 
+Note: If you see an ad on the main feed sidebar, click a post and it will go away. 
+      If you see promoted posts, refresh your page. (issue of object loading slowly dynamic loading)
 Feel free to modify the code to your liking. :)
 
 
