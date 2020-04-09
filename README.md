@@ -12,8 +12,7 @@ So I made it possible for you to download it on your own.
 ![alt text](https://github.com/FahadAdnan/Reddit-Adblock/blob/master/Images/start128.png)
 
 # Small Tile Image
-![alt text](https://github.com/FahadAdnan/Reddit-Adblock/blob/master/Images/start128.png)
-
+![alt text](https://github.com/FahadAdnan/Reddit-Adblock/blob/master/SmallPromoTile.jpg)
 
 
 Steps to get UtubeDownloader:
