@@ -41,7 +41,7 @@ function DeletePromotedPosts(start,end){
 function RemoveAds(){
     var ads;
 
-    setTimeout(function() { // wait post tab to open and all the posts to load. 
+    setTimeout(function() { // wait post tab to open and all the ads to load. 
         ads = document.getElementsByClassName("_1rmObrmUCfC5t42SbwkzYC");
         if(typeof(ads) !== 'undefined'){
             while(ads.length !=0){
@@ -59,9 +59,7 @@ var callback_clicked_post = function(mutationsList, observer_clicked_post) {
     for(let mutation of mutationsList) {  
         if (mutation.type === 'attributes') {
             console.log("Clicked on a post");
-            setTimeout(function() { // wait for page to load multiple the posts 
             RemoveAds();
-             }, 300);
         }
     }
 };
@@ -70,15 +68,18 @@ var callback_main = function(mutationsList, observer_main_feed) {
     for(let mutation of mutationsList) {  
         if (mutation.type === 'childList') {
             console.log(target_main_feed.childElementCount)
-            setTimeout(function() { // wait for page to load multiple the posts 
                 if(target_main_feed.childElementCount > start){
                     var numchild = target_main_feed.childElementCount;
                     observer_main_feed.disconnect();
                     DeletePromotedPosts(start, numchild);
                     start = numchild;
                     observer_main_feed.observe(target_main_feed, config_main_feed);
+                    ads = document.getElementsByClassName("_1rmObrmUCfC5t42SbwkzYC");
+
+                   if(typeof(ads) != 'undefined' && ads.length != 0){
+                       RemoveAds();
+                    }
                 }
-              }, 300);
         }
     }
 };
@@ -92,8 +93,12 @@ var observer_main_feed = new MutationObserver(callback_main);
 // check if nodes are undefined and if not observe.
 function observe_nodes() {
 
+    setTimeout(function() { // wait for  page to load before removing ads. 
+        RemoveAds();
+    }, 300); 
+
     if(typeof(target_clicked_post) === 'undefined' || typeof(target_main_feed) === 'undefined'){
-        setTimeout(function() { // wait for page to load multiple the posts 
+        setTimeout(function() { // wait for page to load main feed to observe. 
             console.log("rechecking if nodes loaded.");
              target_main_feed = document.getElementsByClassName("rpBJOHq2PR60pnwJlUyP0")[0];
              target_clicked_post = document.getElementsByTagName("BODY")[0];  
@@ -109,14 +114,9 @@ function observe_nodes() {
 }
 
 
-
 // When the page updates dynamically, the window don't reload-  add this do what typically happens on a window reload
-
 observe_nodes();
 
-setTimeout(function() { // wait for page before removing ads. 
-    RemoveAds();
-}, 200); 
 
 
 window.addEventListener('load', 

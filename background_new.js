@@ -1,3 +1,5 @@
+
+
 var commentstring = "comments";
 var redditstring = "https://www.reddit.com"
 var stringarr = ["top", "best", "hot", "new", "rising"];
