@@ -8,6 +8,14 @@ Uses mutation observers, and a background script to detect a dynamic changes (e.
 Note: The chrome store isnt yet ACCEPTED by the chrome store.
 So I made it possible for you to download it on your own.
 
+# Icon Image
+![alt text](https://github.com/FahadAdnan/Reddit-Adblock/blob/master/Images/start128.png)
+
+# Small Tile Image
+![alt text](https://github.com/FahadAdnan/Reddit-Adblock/blob/master/Images/start128.png)
+
+
+
 Steps to get UtubeDownloader:
 
 1) Download zip file of extension
