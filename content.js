@@ -10,9 +10,31 @@ var target_clicked_post = document.getElementsByTagName("BODY")[0];
 var config_main_feed = { attributes: false, childList: true, subtree: false };
 var config_clicked_post = { attributes: true, childList: false, subtree: false };
 
+
+var side_bar = { attributes: false, childList: true, subtree: false };
+var config_side_bar = { attributes: true, childList: false, subtree: false };
+
 //start index of what post is being checked if its a promoted post.
 var start =0;
 
+
+function waitForElementToDisplay(selector, time, isAdRemoval) {
+    
+    if(document.querySelector(selector)!=null) {
+        console.log("The Sidebar is loaded")
+        if(isAdRemoval){
+            setTimeout(function() { 
+                 RemoveAds()
+                }, 400);
+        }
+        return;
+    }
+    else {
+        setTimeout(function() {
+            waitForElementToDisplay(selector, time, isAdRemoval);
+        }, time);
+    }
+}
 
 
 function DeletePromotedPosts(start,end){
@@ -39,11 +61,9 @@ function DeletePromotedPosts(start,end){
 }
 
 function RemoveAds(){
-    var ads;
-
-    setTimeout(function() { // wait post tab to open and all the ads to load. 
-        ads = document.getElementsByClassName("_1rmObrmUCfC5t42SbwkzYC");
-        if(typeof(ads) !== 'undefined'){
+    setTimeout(function() { // we need to wait for reddit to dynamically upload data before injecting our own script. 
+    var ads = document.getElementsByClassName("_1rmObrmUCfC5t42SbwkzYC");
+    if(typeof(ads) !== 'undefined'){
             while(ads.length !=0){
                 console.log(ads.length + "This is JUSTICE");
                 if(typeof(ads[0]) !== 'undefined'){
@@ -51,15 +71,17 @@ function RemoveAds(){
                     console.log("A ad was removed!");
                 }
             }
-        }
-    }, 500);
+    }else{
+        console.log("wait for element to load did NOT work// or there are no Ads")
+    }
+ }, 900);
 }
 
 var callback_clicked_post = function(mutationsList, observer_clicked_post) {
     for(let mutation of mutationsList) {  
         if (mutation.type === 'attributes') {
             console.log("Clicked on a post");
-            RemoveAds();
+            waitForElementToDisplay('._1G4yU68P50vRZ4USXfaceV', 200, true)
         }
     }
 };
@@ -92,11 +114,6 @@ var observer_main_feed = new MutationObserver(callback_main);
 
 // check if nodes are undefined and if not observe.
 function observe_nodes() {
-
-    setTimeout(function() { // wait for  page to load before removing ads. 
-        RemoveAds();
-    }, 300); 
-
     if(typeof(target_clicked_post) === 'undefined' || typeof(target_main_feed) === 'undefined'){
         setTimeout(function() { // wait for page to load main feed to observe. 
             console.log("rechecking if nodes loaded.");
@@ -111,18 +128,12 @@ function observe_nodes() {
      if(typeof(target_main_feed) !== 'undefined'){
         observer_main_feed.observe(target_main_feed, config_main_feed);
     }
+    waitForElementToDisplay('._1FUNcfOeszr8eruqLxCMcR', 100, true)
 }
 
 
 // When the page updates dynamically, the window don't reload-  add this do what typically happens on a window reload
-observe_nodes();
-
-
-
-window.addEventListener('load', 
-  function() { 
-    console.log("removing the initial ads.");
+setTimeout(function() { // wait for al
     observe_nodes();
-    RemoveAds();
-
-  }, false);
+    
+}, 800);
