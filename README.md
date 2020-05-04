@@ -12,11 +12,10 @@ So I made it possible for you to download it on your own.
 ![alt text](https://github.com/FahadAdnan/Reddit-Adblock/blob/master/Images/start128.png)
 
 # Small Tile Image
-![alt text](https://github.com/FahadAdnan/Reddit-Adblock/blob/master/Images/start128.png)
+![alt text](https://github.com/FahadAdnan/Reddit-Adblock/blob/master/SmallPromoTile.jpg)
 
 
-
-Steps to get UtubeDownloader:
+Steps to get Reddit-AdBlock:
 
 1) Download zip file of extension
 2) Extract file which should give you a folder
@@ -26,7 +25,6 @@ Steps to get UtubeDownloader:
 6) Select the unzip folder and enjoy
 
 Note: If you see an ad on the main feed sidebar, click a post and it will go away. 
-      If you see promoted posts, refresh your page. (issue of object loading slowly dynamic loading)
 Feel free to modify the code to your liking. :)
 
 
