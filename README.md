@@ -1,4 +1,4 @@
-# Reddit-AdBlock
+# Reddit-AdBlock ## chrome extension
 
 A chrome extension made to block ads and promoted posts on reddit pages, because they are pretty weird. 
 
