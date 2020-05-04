@@ -25,7 +25,7 @@ So I made it possible for you to download it on your own.
 2) Extract file which should give you a folder
 3) Go to chrome://extensions
 4) On the top right corner click the Developer mode switch
-5) Press the new revelaed load unpacked button
+5) Press the new revealed <button> load unpacked </button> button
 6) Select the unzipped folder and enjoy
 
 Note: If you see an ad on the main feed sidebar, click a post and it will go away. 
