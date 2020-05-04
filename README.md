@@ -31,7 +31,7 @@ So I made it possible for you to download it on your own.
 
 Note: If you see an ad on the main feed sidebar, click a post and it will go away. 
 If the application ever stops working simply refresh the page. 
-Feel free to modify the code to your liking. 👍
+Feel free to modify the code to your liking. :)
 
 
 
