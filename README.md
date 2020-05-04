@@ -3,7 +3,7 @@
 A chrome extension made to block ads and promoted posts on reddit pages, because they are pretty weird. 
 
 ### 💻  Tech 
-This application is a [Chrome Extension] made with Javascript.
+This application is a [Chrome Extension](https://chrome.google.com/webstore/category/extensions?hl=en) made with Javascript. </br>
 Used the [Mutation Observer Library](https://developer.android.com/training/volley) to detect changes to the Html DOM<br />
 Used [Content Scripts](https://developer.android.com/jetpack/androidx/releases/recyclerview) to alter/remove elements on pages under https://reddit.com/* domain 
 Used [Background Scripts] to detect changes from dynamic loading (AJAX) <br/>
